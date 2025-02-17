@@ -1,5 +1,4 @@
 
-# --- main.py ---
 #Main File
 import pygame    #main Game Module
 import sys       #Used for opening and exiting the application
@@ -45,13 +44,14 @@ class Main:
                     #if clicked square has a piece
                     if board.squares[clicked_row][clicked_col].has_piece():
                         piece=board.squares[clicked_row][clicked_col].piece
-                        board.calc_moves(piece,clicked_row,clicked_col)
-                        dragger.save_inital(event.pos)
-                        dragger.drag_piece(piece)
-                        #show methods
-                        game.show_bg(screen)
-                        game.show_moves(screen)
-                        game.show_pieces(screen)
+                        if piece.color == game.player_turn: # Check if piece color matches player turn
+                            board.calc_moves(piece,clicked_row,clicked_col)
+                            dragger.save_inital(event.pos)
+                            dragger.drag_piece(piece)
+                            #show methods
+                            game.show_bg(screen)
+                            game.show_moves(screen)
+                            game.show_pieces(screen)
 
                 #Mouse motion
                 elif event.type==pygame.MOUSEMOTION:
@@ -75,23 +75,12 @@ class Main:
                         final=Square(released_row,released_col)
                         move=Move(initial,final)
 
-                        print("Attempted move:")
-                        print(f"  Initial Square: Row={move.initial.row}, Col={move.initial.col}")
-                        print(f"  Final Square: Row={move.final.row}, Col={move.final.col}")
-
-                        print("Valid moves:")
-                        for valid_move in dragger.piece.moves:
-                            print("  Valid Move:")
-                            print(f"    Initial Square: Row={valid_move.initial.row}, Col={valid_move.initial.col}")
-                            print(f"    Final Square: Row={valid_move.final.row}, Col={valid_move.final.col}")
 
                         #check if move is valid
                         if move in dragger.piece.moves: # Line 75 - This should now work because we haven't undragged yet
-                            print("Move is VALID!")
                             board.move(game,dragger.piece,move)
                             game.next_turn()
                         else:
-                            print("Move is INVALID!")
                             # If move is invalid, return piece to initial position
                             board.squares[dragger.initial_row][dragger.initial_col].piece = dragger.piece
                             game.show_bg(screen)
@@ -113,9 +102,6 @@ class Main:
                 elif event.type==pygame.QUIT: #checking if user decides to quit the gameand exiting the applicaiton
                     pygame.quit()
                     sys.exit()
-
-
-
 
 
             pygame.display.update()
