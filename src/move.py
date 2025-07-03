@@ -1,12 +1,17 @@
+from square import Square
+from const import *
+
 class Move:
-
-    def __init__(self,initial,final, piece_moved=None): # Add piece_moved parameter
-        #initial and final are squares
-        self.initial=initial
-        self.final=final
-        self.piece_moved = piece_moved # Store the piece that moved
-
+    def __init__(self, initial, final):
+        # initial and final are squares
+        self.initial = initial
+        self.final = final
+        
     def __eq__(self, other):
-        if isinstance(other, Move):
+        if other == None:
+            return False
+        else:
             return self.initial == other.initial and self.final == other.final
-        return False
+    
+    def show(self, piece_name: str, comment: str):
+        print(f"{comment} {piece_name}: {Square.get_alphacol(self.initial.col)}{ROWS-self.initial.row} -> {Square.get_alphacol(self.final.col)}{ROWS-self.final.row}")
