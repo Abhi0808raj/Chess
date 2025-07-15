@@ -158,16 +158,6 @@ Add new themes in `config.py` by creating new `Theme` objects with different col
 - Check detection and prevention of illegal moves
 - Special moves (castling, en passant) fully supported
 
-## Contributing
-
-This project is based on original work by AlejoG10 with significant improvements and bug fixes by Krzysztof Kućmierz. Feel free to contribute by:
-
-1. Reporting bugs
-2. Suggesting new features
-3. Improving AI algorithms
-4. Adding new themes
-5. Optimizing performance
-
 ## Known Limitations
 
 - Three-fold repetition detection is partially implemented
