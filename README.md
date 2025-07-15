@@ -71,8 +71,8 @@ A fully-featured chess game implementation in Python with AI opponent using the 
 ### Setup
 1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd chess-game
+git clone https://github.com/Abhi0808raj/Chess
+cd chess
 ```
 
 2. Install required dependencies:
