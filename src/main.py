@@ -1,5 +1,4 @@
 # Original code by AlejoG10 avaiable at GitHub https://github.com/AlejoG10/python-chess-ai-yt
-# Bug fixes/improvements/new features by Krzysztof Kućmierz krzysztof.kucmierz@artificiuminformatica.pl
 
 import pygame
 import sys
