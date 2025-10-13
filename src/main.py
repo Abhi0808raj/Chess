@@ -1,5 +1,3 @@
-# Original code by AlejoG10 avaiable at GitHub https://github.com/AlejoG10/python-chess-ai-yt
-
 import pygame
 import sys
 from const import *
